@@ -11,7 +11,7 @@ public class BarController : MonoBehaviour
         barImage = GetComponent<Image>();
     }
 
-    public void ChangeSize(float size, float maxSize)
+    public void ChangeHeight(float size, float maxSize)
     {
         if (barImage)
         {

@@ -33,7 +33,7 @@ public class ControlsManager : MonoBehaviour
         if (barInfoToRemove && barInfoInputs.Count > 0)
         {
             barInfoInputs.Remove(barInfoToRemove);
-            Destroy(barInfoToRemove);
+            Destroy(barInfoToRemove.gameObject);
         }
     }
 }

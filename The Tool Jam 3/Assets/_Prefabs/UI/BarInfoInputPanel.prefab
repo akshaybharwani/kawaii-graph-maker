@@ -260,6 +260,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6770386783579799398, guid: 76d085621403a3a4d85545111ae30a8e, type: 3}
+      propertyPath: m_CharacterLimit
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6770386783579799398, guid: 76d085621403a3a4d85545111ae30a8e, type: 3}
       propertyPath: m_CharacterValidation
       value: 3
       objectReference: {fileID: 0}

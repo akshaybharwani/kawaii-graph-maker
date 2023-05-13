@@ -24,7 +24,7 @@ public class BarVisualController : MonoBehaviour
     
     public void ChangeValue(float size, float maxSize)
     {
-        if (barImage)
+        if (barImage && maxSize != 0)
         {
             var sizePercent = (size / maxSize);
             barImage.fillAmount = sizePercent;

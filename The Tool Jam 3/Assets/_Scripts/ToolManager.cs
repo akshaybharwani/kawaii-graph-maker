@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using System.Linq;
+using TMPro;
 using UnityEngine;
 
 public class ToolManager : MonoBehaviour
@@ -13,22 +15,87 @@ public class ToolManager : MonoBehaviour
         }
     }
 
+    // Input Fields
+    [SerializeField] 
+    private TMP_InputField maxValueInput;
+
     private int maxBarValue;
     public int MaxBarValue => maxBarValue;
 
     private List<Bar> bars = new();
 
+    private void Start()
+    {
+        SetupToolInputs();
+    }
+
+    private void SetupToolInputs()
+    {
+        maxValueInput.onValueChanged.AddListener(delegate
+        {
+            maxBarValue = string.IsNullOrEmpty(maxValueInput.text) ? 0 : int.Parse(maxValueInput.text);
+        });
+        
+        maxValueInput.onEndEdit.AddListener(delegate
+        {
+            foreach (var bar in bars)
+            {
+                var valueInput = bar.InfoInput.BarValueInput;
+                var valueText = valueInput.text;
+                valueInput.onValueChanged.Invoke(valueText);
+            }
+        });
+    }
+
     public void AddBar()
     {
         var barVisual = GraphManager.Instance.GetNewBarImage();
         var barInfoInput = ControlsManager.Instance.GetNewBarInfoInput();
-        barInfoInput.SetBarNumber(bars.Count + 1);
-        barInfoInput.BarNameInput.onValueChanged.AddListener(delegate {barVisual.ChangeName(barInfoInput.BarNameInput.text);});
-        barInfoInput.BarValueInput.onValueChanged.AddListener(delegate {barVisual.ChangeValue(int.Parse(barInfoInput.BarValueInput.text), maxBarValue);});
+        SetupBar(barVisual, barInfoInput);
         var newBar = new Bar(barVisual, barInfoInput);
         bars.Add(newBar);
     }
 
+    private void SetupBar(BarVisualController barVisual, BarInfoInputController barInfoInput)
+    {
+        barInfoInput.SetBarNumber(bars.Count + 1);
+        barInfoInput.BarNameInput.onValueChanged.AddListener(delegate
+        {
+            if (string.IsNullOrEmpty(barInfoInput.BarNameInput.text)) return;
+            barVisual.ChangeName(barInfoInput.BarNameInput.text);
+        });
+        barInfoInput.BarValueInput.onValueChanged.AddListener(delegate
+        {
+            if (string.IsNullOrEmpty(barInfoInput.BarValueInput.text)) return;
+            barVisual.ChangeValue(int.Parse(barInfoInput.BarValueInput.text), maxBarValue);
+        });
+        barInfoInput.BarValueInput.onEndEdit.AddListener(delegate
+        {
+            if (!string.IsNullOrEmpty(barInfoInput.BarValueInput.text)) return;
+            ClearBarValue(barInfoInput);
+        });
+        maxValueInput.onEndEdit.AddListener(delegate
+        {
+            if (string.IsNullOrEmpty(maxValueInput.text)) return;
+            SetBarValueIfEmpty(barInfoInput);
+        });
+        if (maxBarValue != 0) {barInfoInput.BarValueInput.text = maxBarValue.ToString();}
+    }
+    
+    private void SetBarValueIfEmpty(BarInfoInputController barInfoInput)
+    {
+        var barValueInput = barInfoInput.BarValueInput;
+        if (string.IsNullOrEmpty(barValueInput.text))
+        {
+            barValueInput.text = maxBarValue.ToString();
+        }
+    }
+    
+    private void ClearBarValue(BarInfoInputController barInfoInput)
+    {
+        barInfoInput.BarValueInput.text = 0.ToString();
+    }
+    
     public void RemoveBar(Bar barToRemove)
     {
         if (bars.Count > 0)
@@ -36,6 +103,15 @@ public class ToolManager : MonoBehaviour
             bars.Remove(barToRemove);
             GraphManager.Instance.RemoveBarImage(barToRemove.Image);
             ControlsManager.Instance.RemoveBarInfoInput(barToRemove.InfoInput);
+        }
+    }
+    
+    public void RemoveLastBar()
+    {
+        if (bars.Count > 0)
+        {
+            var barToRemove = bars.Last();
+            RemoveBar(barToRemove);
         }
     }
 

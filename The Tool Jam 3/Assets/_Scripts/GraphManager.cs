@@ -36,7 +36,7 @@ public class GraphManager : MonoBehaviour
         if (barVisualToRemove && barImages.Count > 0)
         {
             barImages.Remove(barVisualToRemove);
-            Destroy(barVisualToRemove);
+            Destroy(barVisualToRemove.gameObject);
         }
     }
 }

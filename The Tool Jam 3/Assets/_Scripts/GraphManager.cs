@@ -1,6 +1,7 @@
 using System.Collections.Generic;
-using System.Linq;
+using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class GraphManager : MonoBehaviour
 {
@@ -14,40 +15,31 @@ public class GraphManager : MonoBehaviour
         }
     }
     
-    [SerializeField]
-    private BarController barPrefab;
+    [FormerlySerializedAs("barImagePrefab")] [SerializeField]
+    private BarVisualController barVisualPrefab;
 
     [SerializeField] 
     private Transform barParent;
 
-    private List<BarController> bars = new List<BarController>();
-    public List<BarController> Bars => bars;
+    [SerializeField] 
+    private TextMeshProUGUI barName;
 
-    private void Start()
+    private List<BarVisualController> barImages = new();
+
+    public BarVisualController GetNewBarImage()
     {
-        
-    }
-    
-    public void AddBar()
-    {
-        var bar = Instantiate(barPrefab, barParent);
-        bars.Add(bar);
+        var bar = Instantiate(barVisualPrefab, barParent);
+        bar.Setup();
+        barImages.Add(bar);
+        return bar;
     }
 
-    public void RemoveBar(BarController barToRemove)
+    public void RemoveBarImage(BarVisualController barVisualToRemove)
     {
-        if (barToRemove && bars.Count > 0)
+        if (barVisualToRemove && barImages.Count > 0)
         {
-            bars.Remove(barToRemove);
-            Destroy(barToRemove);
-        }
-    }
-
-    public void RemoveLastBar()
-    {
-        if (bars.Count > 0)
-        {
-            bars.Remove(bars.Last());
+            barImages.Remove(barVisualToRemove);
+            Destroy(barVisualToRemove);
         }
     }
 }

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1734970998190110956}
   - component: {fileID: 5212942970219053252}
   - component: {fileID: 1619633669741647768}
+  - component: {fileID: 3792952331480809410}
   m_Layer: 5
   m_Name: BarInputFieldPanel
   m_TagString: Untagged
@@ -106,6 +107,18 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &3792952331480809410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6952066423388101026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11f8b817a991ef446b86e400c8aa1e68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &502353337548717465
 PrefabInstance:
   m_ObjectHideFlags: 0

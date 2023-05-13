@@ -1,9 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
-using UnityEngine.Serialization;
-using UnityEngine.UI;
 
 public class ControlsManager : MonoBehaviour
 {
@@ -21,13 +17,13 @@ public class ControlsManager : MonoBehaviour
     private BarInfoInputController barInfoInputPrefab;
     
     [SerializeField] 
-    private Transform barParent;
+    private Transform barInfoInputParent;
 
     private List<BarInfoInputController> barInfoInputs = new();
     
     public BarInfoInputController GetNewBarInfoInput()
     {
-        var barInfoInput = Instantiate(barInfoInputPrefab, barParent);
+        var barInfoInput = Instantiate(barInfoInputPrefab, barInfoInputParent);
         barInfoInputs.Add(barInfoInput);
         return barInfoInput;
     }

@@ -17,9 +17,9 @@ public class BarVisualController : MonoBehaviour
     {
         // TODO: figure out a better way to set proper position for Bar Text and Image 
         // Currently this is putting the text below the Axis line and Image above
-        var rect = GetComponent<RectTransform>().rect;
+        /*var rect = GetComponent<RectTransform>().rect;
         var rectHeight = rect.height;
-        rect.height = rectHeight - barName.GetComponent<RectTransform>().rect.height;
+        rect.height = rectHeight + barName.GetComponent<RectTransform>().rect.height;*/
     }
     
     public void ChangeValue(float size, float maxSize)

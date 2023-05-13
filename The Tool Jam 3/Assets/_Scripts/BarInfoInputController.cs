@@ -1,22 +1,19 @@
-using System;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
-using UnityEngine.UI;
 
 public class BarInfoInputController : MonoBehaviour
 {
     [SerializeField] 
     private TextMeshProUGUI barNumber;
     [SerializeField]
-    private InputField barNameInput;
+    private TMP_InputField barNameInput;
     [SerializeField]
-    private InputField barValueInput;
+    private TMP_InputField barValueInput;
 
-    public InputField BarNameInput => barNameInput;
-    public InputField BarValueInput => barValueInput;
+    public TMP_InputField BarNameInput => barNameInput;
+    public TMP_InputField BarValueInput => barValueInput;
 
-    private void SetBarInfo(int barNumber)
+    public void SetBarNumber(int barNumber)
     {
         this.barNumber.text = barNumber.ToString();
     }

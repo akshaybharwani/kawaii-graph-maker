@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barImage: {fileID: 0}
-  barText: {fileID: 0}
+  barName: {fileID: 0}
 --- !u!1 &8508389142724743752
 GameObject:
   m_ObjectHideFlags: 0
@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 8508389142724743748}
   - component: {fileID: 8508389142724743750}
   m_Layer: 5
-  m_Name: BarImage
+  m_Name: BarVisual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barImage: {fileID: 5112059363417934659}
-  barText: {fileID: 8841930911327142832}
+  barName: {fileID: 8841930911327142832}
 --- !u!1001 &8646450380496266503
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -251,7 +251,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5737889477374498985, guid: 4c90270bcf0c30b4a9ca994635f7ccc3, type: 3}
       propertyPath: m_Name
-      value: NormalText
+      value: BarNameText
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

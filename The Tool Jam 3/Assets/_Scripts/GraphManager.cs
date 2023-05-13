@@ -21,9 +21,6 @@ public class GraphManager : MonoBehaviour
     [SerializeField] 
     private Transform barParent;
 
-    [SerializeField] 
-    private TextMeshProUGUI barName;
-
     private List<BarVisualController> barImages = new();
 
     public BarVisualController GetNewBarImage()

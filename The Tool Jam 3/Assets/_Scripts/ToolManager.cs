@@ -22,6 +22,7 @@ public class ToolManager : MonoBehaviour
     {
         var barVisual = GraphManager.Instance.GetNewBarImage();
         var barInfoInput = ControlsManager.Instance.GetNewBarInfoInput();
+        barInfoInput.SetBarNumber(bars.Count + 1);
         barInfoInput.BarNameInput.onValueChanged.AddListener(delegate {barVisual.ChangeName(barInfoInput.BarNameInput.text);});
         barInfoInput.BarValueInput.onValueChanged.AddListener(delegate {barVisual.ChangeValue(int.Parse(barInfoInput.BarValueInput.text), maxBarValue);});
         var newBar = new Bar(barVisual, barInfoInput);

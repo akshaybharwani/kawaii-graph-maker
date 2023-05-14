@@ -17,6 +17,7 @@ public class NormalText : MonoBehaviour
         if (ThemeManager.Instance)
         {
             tmpText.font = ThemeManager.Instance.CurrentFontAsset;
+            GetComponent<TextMeshProUGUI>().color = ThemeManager.Instance.CurrentFontColor;
         }
     }
 }

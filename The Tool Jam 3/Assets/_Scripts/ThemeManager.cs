@@ -15,12 +15,16 @@ public class ThemeManager : MonoBehaviour
             Instance = this;
         }
         CurrentFontAsset = themeData.themes[0].fontAsset;
+        CurrentFontColor = themeData.themes[0].fontColor;
         CurrentBarColor = themeData.themes[0].barColor;
+        CurrentBarInfoColor = themeData.themes[0].barInfoInputColor;
         CurrentInputFieldColor = themeData.themes[0].inputFieldColor;
     }
 
     [NonSerialized]
     public TMP_FontAsset CurrentFontAsset;
+    [NonSerialized]
+    public Color CurrentFontColor;
     
     [NonSerialized]
     public Sprite CurrentBarSprite;
@@ -33,6 +37,9 @@ public class ThemeManager : MonoBehaviour
     public Color CurrentInputFieldColor;
     [NonSerialized] 
     public Color CurrentInputFieldTextColor;
+    
+    [NonSerialized] 
+    public Color CurrentBarInfoColor;
     
     [Header("Theme stuff")]
     [SerializeField] 
@@ -72,6 +79,14 @@ public class ThemeManager : MonoBehaviour
     [SerializeField]
     private Image yAxisLine;
 
+    [SerializeField] 
+    private Image scrollRect;
+
+    [SerializeField] 
+    private Image addBarImage;
+    [SerializeField] 
+    private Image removeBarImage;
+
     private List<Image> themeButtonBackgroundImages = new();
     
     private void Start()
@@ -98,6 +113,13 @@ public class ThemeManager : MonoBehaviour
         ChangeBar(theme);
         ChangeInputField(theme);
         ChangeIcons(theme);
+        ChangeButtons(theme);
+    }
+
+    private void ChangeButtons(Theme theme)
+    {
+        addBarImage.color = theme.barButtonColor;
+        removeBarImage.color = theme.barButtonColor;
     }
 
     private void ChangeIcons(Theme theme)
@@ -141,54 +163,32 @@ public class ThemeManager : MonoBehaviour
 
     private void ChangeBar(Theme theme)
     {
-        if (theme.barSprite)
-        {
-            CurrentBarSprite = theme.barSprite;
-        }
-        else
-        {
-            CurrentBarSprite = null;
-        }
+        CurrentBarSprite = theme.barSprite ? theme.barSprite : null;
         CurrentBarColor = theme.barColor;
+        CurrentBarInfoColor = theme.barInfoInputColor;
+        xAxisLine.color = theme.axisColor;
+        yAxisLine.color = theme.axisColor;
         var bars = FindObjectsOfType<BarVisualController>();
+        var barInfoInputs = FindObjectsOfType<BarInfoInputController>();
 
         foreach (var bar in bars)
         {
             bar.UpdateBarImage();
         }
+        
+        foreach (var barInfoInput in barInfoInputs)
+        {
+            barInfoInput.UpdateImage();
+        }
     }
 
     private void ChangeBackgrounds(Theme theme)
     {
-        if (theme.toolBackgroundImage)
-        {
-            toolBackground.sprite = theme.toolBackgroundImage;
-        }
-        else
-        {
-            toolBackground.sprite = null;
-            
-        }
+        toolBackground.sprite = theme.toolBackgroundImage ? theme.toolBackgroundImage : null;
         toolBackground.color = theme.toolBackgroundColor;
-        if (theme.graphBackgroundSprite)
-        {
-            graphBackground.sprite = theme.graphBackgroundSprite;
-        }
-        else
-        {
-            graphBackground.sprite = null;
-            
-        }
+        graphBackground.sprite = theme.graphBackgroundSprite ? theme.graphBackgroundSprite : null;
         graphBackground.color = theme.graphBackgroundColor;
-        if (theme.controlBackgroundSprite)
-        {
-            controlBackground.sprite = theme.controlBackgroundSprite;
-        }
-        else
-        {
-            controlBackground.sprite = null;
-            
-        }
+        controlBackground.sprite = theme.controlBackgroundSprite ? theme.controlBackgroundSprite : null;
         controlBackground.color = theme.controlBackgroundColor;
         if (theme.infoBackgroundSprite)
         {
@@ -200,11 +200,14 @@ public class ThemeManager : MonoBehaviour
             detailsPanelBackground.color = theme.infoBackgroundColor;
             barInfoPanelBackground.color = theme.infoBackgroundColor;
         }
+
+        scrollRect.color = theme.infoBackgroundColor;
     }
 
     private void ChangeFont(Theme theme)
     {
         CurrentFontAsset = theme.fontAsset;
+        CurrentFontColor = theme.fontColor;
         var normalTexts = FindObjectsOfType<NormalText>();
 
         foreach (var normalText in normalTexts)

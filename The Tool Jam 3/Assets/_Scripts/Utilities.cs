@@ -32,10 +32,11 @@ public class Utilities : MonoBehaviour
 
     private void SaveScreenshot(byte[] bytes)
     {
+        var name = $"Kawaii Graph_{DateTime.Now:hh-mm-ss}.png";
 #if UNITY_WEBGL && !UNITY_EDITOR
         if (WebGLFileSaver.IsSavingSupported())
         {
-            WebGLFileSaver.SaveFile(bytes, "Kawaii Graph_{DateTime.Now:hh-mm-ss}.png");
+            WebGLFileSaver.SaveFile(bytes, name);
         }
         else
         {
@@ -43,7 +44,7 @@ public class Utilities : MonoBehaviour
         }
 #endif
 #if UNITY_EDITOR
-        System.IO.File.WriteAllBytes($"{Application.dataPath}/Kawaii Graph_{DateTime.Now:hh-mm-ss}.png", bytes);
+        System.IO.File.WriteAllBytes($"{Application.dataPath}/" + name, bytes);
 #endif
     }
 

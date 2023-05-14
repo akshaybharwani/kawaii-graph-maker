@@ -16,7 +16,9 @@ public class Theme
 {
     public string name;
     public TMP_FontAsset fontAsset;
-    [FormerlySerializedAs("inputFieldImage")] [Header("Input Field")]
+    public Color fontColor;
+    public Color axisColor;
+    [Header("Input Field")]
     public Sprite inputFieldSprite;
     public Color inputFieldColor;
     public Color inputFieldTextColor;
@@ -41,4 +43,6 @@ public class Theme
     public Sprite removeBarIcon;
     public Sprite buttonBackground;
     public Color buttonBackgroundColor;
+    public Color barButtonColor;
+    public Color barInfoInputColor;
 }

@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BarInfoInputController : MonoBehaviour
 {
@@ -12,6 +13,19 @@ public class BarInfoInputController : MonoBehaviour
 
     public TMP_InputField BarNameInput => barNameInput;
     public TMP_InputField BarValueInput => barValueInput;
+
+    private void Awake()
+    {
+        UpdateImage();
+    }
+
+    public void UpdateImage()
+    {
+        if (ThemeManager.Instance)
+        {
+            GetComponent<Image>().color = ThemeManager.Instance.CurrentBarInfoColor;
+        }
+    }
 
     public void SetBarNumber(int barNumber)
     {

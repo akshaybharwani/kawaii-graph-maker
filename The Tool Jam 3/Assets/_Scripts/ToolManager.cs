@@ -19,6 +19,9 @@ public class ToolManager : MonoBehaviour
     [SerializeField] 
     private TMP_InputField maxValueInput;
 
+    [SerializeField] 
+    private RectTransform graphRectTransform;
+
     private int maxBarValue;
     public int MaxBarValue => maxBarValue;
 
@@ -115,6 +118,11 @@ public class ToolManager : MonoBehaviour
         }
     }
 
+    public void TakeScreenshot()
+    {
+        Utilities.Instance.TakeScreenshot(graphRectTransform);
+    }
+    
     public struct Bar
     {
         public BarVisualController Image;

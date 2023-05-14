@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   themes:
   - name: Flat
-    fontAsset: {fileID: 0}
+    fontAsset: {fileID: 11400000, guid: 1131655ff8bc9ed4494d698ad9793308, type: 2}
     graphBackgroundImage: {fileID: 0}

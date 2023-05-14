@@ -48,6 +48,13 @@ public class ThemeManager : MonoBehaviour
     
     [SerializeField]
     private Image controlBackground;
+    
+    [SerializeField]
+    private Image saveIcon;
+    [SerializeField]
+    private Image addBarIcon;
+    [SerializeField]
+    private Image removeBarIcon;
 
     private void Start()
     {
@@ -71,6 +78,14 @@ public class ThemeManager : MonoBehaviour
         ChangeBackgrounds(theme);
         ChangeBar(theme);
         ChangeInputField(theme);
+        ChangeIcons(theme);
+    }
+
+    private void ChangeIcons(Theme theme)
+    {
+        if (theme.saveIcon) saveIcon.sprite = theme.saveIcon;
+        if (theme.addBarIcon) addBarIcon.sprite = theme.addBarIcon;
+        if (theme.removeBarIcon) removeBarIcon.sprite = theme.removeBarIcon;
     }
 
     private void ChangeInputField(Theme theme)

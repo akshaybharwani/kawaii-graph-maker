@@ -27,4 +27,8 @@ public class Theme
     [Header("Bar")]
     public Sprite barSprite;
     public Color barColor;
+    [Header("Icons")]
+    public Sprite saveIcon;
+    public Sprite addBarIcon;
+    public Sprite removeBarIcon;
 }

@@ -14,6 +14,8 @@ public class ThemeManager : MonoBehaviour
             Instance = this;
         }
         CurrentFontAsset = themeData.themes[0].fontAsset;
+        CurrentBarColor = themeData.themes[0].barColor;
+        CurrentInputFieldColor = themeData.themes[0].inputFieldColor;
     }
 
     [NonSerialized]

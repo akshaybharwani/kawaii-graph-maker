@@ -20,19 +20,16 @@ public class ToolManager : MonoBehaviour
     [SerializeField] 
     private TMP_InputField maxValueInput;
 
-    [SerializeField] 
-    private RectTransform graphRectTransform;
-
-    [SerializeField] 
-    private GameObject controlsContainer;
-
     private int maxBarValue;
     public int MaxBarValue => maxBarValue;
 
     private List<Bar> bars = new();
 
+    private CanvasGroup[] nonScreenshotCanvasGroups;
+
     private void Start()
     {
+        nonScreenshotCanvasGroups = GetComponentsInChildren<CanvasGroup>();
         SetupToolInputs();
     }
 
@@ -129,18 +126,16 @@ public class ToolManager : MonoBehaviour
 
     private IEnumerator WaitAndTakeScreenshot()
     {
-        // Center the graph rect
-        var prevAnchoredPosition = graphRectTransform.anchoredPosition;
-        graphRectTransform.anchoredPosition = Vector2.zero;
-        controlsContainer.SetActive(false);
-        
+        foreach (var nonScreenshotCanvasGroup in nonScreenshotCanvasGroups)
+        {
+            nonScreenshotCanvasGroup.alpha = 0;
+        }
         yield return new WaitForEndOfFrame();
-
         Utilities.Instance.TakeScreenshot();
-        
-        // Reset the position 
-        controlsContainer.SetActive(true);
-        graphRectTransform.anchoredPosition = prevAnchoredPosition;
+        foreach (var nonScreenshotCanvasGroup in nonScreenshotCanvasGroups)
+        {
+            nonScreenshotCanvasGroup.alpha = 1;
+        }
     }
     
     public struct Bar

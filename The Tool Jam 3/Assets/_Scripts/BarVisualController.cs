@@ -1,7 +1,5 @@
-using System;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class BarVisualController : MonoBehaviour
@@ -22,13 +20,16 @@ public class BarVisualController : MonoBehaviour
 
     public void UpdateBarImage()
     {
-        if (ThemeManager.Instance.CurrentBarSprite)
+        if (ThemeManager.Instance)
         {
-            barImage.sprite = ThemeManager.Instance.CurrentBarSprite;
-        }
-        else
-        {
-            barImage.color = ThemeManager.Instance.CurrentBarColor;
+            if (ThemeManager.Instance.CurrentBarSprite)
+            {
+                barImage.sprite = ThemeManager.Instance.CurrentBarSprite;
+            }
+            else
+            {
+                barImage.color = ThemeManager.Instance.CurrentBarColor;
+            }
         }
     }
 

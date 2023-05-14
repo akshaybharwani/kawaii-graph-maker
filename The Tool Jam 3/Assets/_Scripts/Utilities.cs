@@ -67,4 +67,25 @@ public class Utilities : MonoBehaviour
         rectTexture.Apply();
         var bytes = rectTexture.EncodeToPNG();
     }
+
+    public void SnapTo(RectTransform target, ScrollRect scrollRect, RectTransform contentPanel)
+    {
+        Canvas.ForceUpdateCanvases();
+
+        contentPanel.anchoredPosition =
+            (Vector2)scrollRect.transform.InverseTransformPoint(contentPanel.position)
+            - (Vector2)scrollRect.transform.InverseTransformPoint(target.position);
+        SetLeft(contentPanel, 0);
+        SetRight(contentPanel, 0);
+    }
+    
+    public static void SetLeft(RectTransform rt, float left)
+    {
+        rt.offsetMin = new Vector2(left, rt.offsetMin.y);
+    }
+ 
+    public static void SetRight(RectTransform rt, float right)
+    {
+        rt.offsetMax = new Vector2(-right, rt.offsetMax.y);
+    }
 }

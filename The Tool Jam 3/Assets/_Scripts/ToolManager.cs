@@ -6,6 +6,16 @@ using UnityEngine;
 
 public class ToolManager : MonoBehaviour
 { 
+    public static ToolManager Instance;
+ 
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+    }
+    
     // Input Fields
     [SerializeField] 
     private TMP_InputField maxValueInput;

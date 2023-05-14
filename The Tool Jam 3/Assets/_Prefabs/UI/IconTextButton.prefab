@@ -134,6 +134,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4273200925169029632, guid: b248a2e7f54208a489434f4fb7002259, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4273200925169029643, guid: b248a2e7f54208a489434f4fb7002259, type: 3}
       propertyPath: m_Name
       value: IconTextButton

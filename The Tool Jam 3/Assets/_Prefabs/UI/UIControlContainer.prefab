@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6034527395641761001}
   m_Layer: 5
   m_Name: UIControlContainer
-  m_TagString: Untagged
+  m_TagString: ContainerPanel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

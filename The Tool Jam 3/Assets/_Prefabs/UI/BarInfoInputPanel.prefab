@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3792952331480809410}
   m_Layer: 5
   m_Name: BarInfoInputPanel
-  m_TagString: Untagged
+  m_TagString: BarInfo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

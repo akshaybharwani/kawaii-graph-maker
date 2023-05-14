@@ -18,12 +18,16 @@ public class Theme
     public TMP_FontAsset fontAsset;
     public Color inputFieldColor;
     public Color toolBackgroundColor;
+    public Sprite toolBackgroundImage;
     [Header("Graph Background")]
     public Sprite graphBackgroundSprite;
     public Color graphBackgroundColor;
     [Header("Control Background")]
     public Sprite controlBackgroundSprite;
     public Color controlBackgroundColor;
+    [Header("Info Background")]
+    public Sprite infoBackgroundSprite;
+    public Color infoBackgroundColor;
     [Header("Bar")]
     public Sprite barSprite;
     public Color barColor;
@@ -31,4 +35,5 @@ public class Theme
     public Sprite saveIcon;
     public Sprite addBarIcon;
     public Sprite removeBarIcon;
+    public Sprite buttonBackground;
 }

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -50,12 +51,20 @@ public class ThemeManager : MonoBehaviour
     private Image controlBackground;
     
     [SerializeField]
+    private Image detailsPanelBackground;
+    
+    [SerializeField]
+    private Image barInfoPanelBackground;
+    
+    [SerializeField]
     private Image saveIcon;
     [SerializeField]
     private Image addBarIcon;
     [SerializeField]
     private Image removeBarIcon;
 
+    private List<Image> themeButtonBackgroundImages = new();
+    
     private void Start()
     {
         PopulateThemes();
@@ -65,15 +74,16 @@ public class ThemeManager : MonoBehaviour
     {
         for (var i = 0; i < themeData.themes.Count; i++)
         {
+            var theme = themeData.themes[i];
             var themeButton = Instantiate(iconTextButton, themeParent);
-            themeButton.GetComponentInChildren<Button>().onClick.AddListener(delegate { ChangeTheme(i - 1); });
+            themeButton.GetComponentInChildren<Button>().onClick.AddListener(delegate { ChangeTheme(theme); });
             themeButton.GetComponentInChildren<TextMeshProUGUI>().text = (i + 1).ToString();
+            themeButtonBackgroundImages.Add(themeButton.GetComponent<Image>());
         }
     }
 
-    private void ChangeTheme(int themeIndex)
+    private void ChangeTheme(Theme theme)
     {
-        var theme = themeData.themes[themeIndex];
         ChangeFont(theme);
         ChangeBackgrounds(theme);
         ChangeBar(theme);
@@ -83,9 +93,18 @@ public class ThemeManager : MonoBehaviour
 
     private void ChangeIcons(Theme theme)
     {
-        if (theme.saveIcon) saveIcon.sprite = theme.saveIcon;
+        if (theme.saveIcon)
+        {
+            saveIcon.sprite = theme.saveIcon;
+        }
         if (theme.addBarIcon) addBarIcon.sprite = theme.addBarIcon;
         if (theme.removeBarIcon) removeBarIcon.sprite = theme.removeBarIcon;
+        var backgroundSprite = theme.buttonBackground ? theme.buttonBackground : null;
+        saveIcon.transform.parent.GetComponent<Image>().sprite = backgroundSprite;
+        foreach (var themeButtonBackgroundImage in themeButtonBackgroundImages)
+        {
+            themeButtonBackgroundImage.sprite = backgroundSprite;
+        }
     }
 
     private void ChangeInputField(Theme theme)
@@ -105,6 +124,10 @@ public class ThemeManager : MonoBehaviour
         {
             CurrentBarSprite = theme.barSprite;
         }
+        else
+        {
+            CurrentBarSprite = null;
+        }
         CurrentBarColor = theme.barColor;
         var bars = FindObjectsOfType<BarVisualController>();
 
@@ -116,9 +139,46 @@ public class ThemeManager : MonoBehaviour
 
     private void ChangeBackgrounds(Theme theme)
     {
-        toolBackground.color = theme.toolBackgroundColor;
-        graphBackground.sprite = theme.graphBackgroundSprite;
-        controlBackground.sprite = theme.controlBackgroundSprite;
+        if (theme.toolBackgroundImage)
+        {
+            toolBackground.sprite = theme.toolBackgroundImage;
+        }
+        else
+        {
+            toolBackground.sprite = null;
+            toolBackground.color = theme.toolBackgroundColor;
+        }
+
+        if (theme.graphBackgroundSprite)
+        {
+            graphBackground.sprite = theme.graphBackgroundSprite;
+        }
+        else
+        {
+            graphBackground.sprite = null;
+            graphBackground.color = theme.graphBackgroundColor;
+        }
+
+        if (theme.controlBackgroundSprite)
+        {
+            controlBackground.sprite = theme.controlBackgroundSprite;
+        }
+        else
+        {
+            controlBackground.sprite = null;
+            controlBackground.color = theme.controlBackgroundColor;
+        }
+
+        if (theme.infoBackgroundSprite)
+        {
+            detailsPanelBackground.sprite = theme.infoBackgroundSprite;
+            barInfoPanelBackground.sprite = theme.infoBackgroundSprite;
+        }
+        else
+        {
+            detailsPanelBackground.color = theme.infoBackgroundColor;
+            barInfoPanelBackground.color = theme.infoBackgroundColor;
+        }
     }
 
     private void ChangeFont(Theme theme)

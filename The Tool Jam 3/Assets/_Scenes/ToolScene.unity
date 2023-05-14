@@ -1577,6 +1577,8 @@ MonoBehaviour:
   saveIcon: {fileID: 1625800304}
   addBarIcon: {fileID: 652337367}
   removeBarIcon: {fileID: 983276315}
+  xAxisLine: {fileID: 493784379}
+  yAxisLine: {fileID: 1074114198}
 --- !u!114 &865305364
 MonoBehaviour:
   m_ObjectHideFlags: 0

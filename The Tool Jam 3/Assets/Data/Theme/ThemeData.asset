@@ -15,9 +15,11 @@ MonoBehaviour:
   themes:
   - name: Flat
     fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    inputFieldSprite: {fileID: 0}
     inputFieldColor: {r: 0.08627451, g: 0.5568628, b: 0.654902, a: 1}
-    toolBackgroundColor: {r: 0.08627451, g: 0.58431375, b: 0.33333334, a: 1}
+    inputFieldTextColor: {r: 1, g: 1, b: 1, a: 1}
     toolBackgroundImage: {fileID: 0}
+    toolBackgroundColor: {r: 0.08627451, g: 0.58431375, b: 0.33333334, a: 1}
     graphBackgroundSprite: {fileID: 0}
     graphBackgroundColor: {r: 0.2509804, g: 0.28627452, b: 0.40784317, a: 1}
     controlBackgroundSprite: {fileID: 0}
@@ -30,37 +32,24 @@ MonoBehaviour:
     addBarIcon: {fileID: 0}
     removeBarIcon: {fileID: 0}
     buttonBackground: {fileID: 0}
+    buttonBackgroundColor: {r: 0.08627451, g: 0.5568628, b: 0.654902, a: 1}
   - name: Pixel
     fontAsset: {fileID: 11400000, guid: dc75c1f090b54e4499e29431d8ada112, type: 2}
+    inputFieldSprite: {fileID: 0}
     inputFieldColor: {r: 0.9215687, g: 0.83921576, b: 0.8196079, a: 1}
-    toolBackgroundColor: {r: 0.74509805, g: 0.2901961, b: 0.18431373, a: 1}
+    inputFieldTextColor: {r: 0, g: 0, b: 0, a: 1}
     toolBackgroundImage: {fileID: 0}
+    toolBackgroundColor: {r: 0.74509805, g: 0.2901961, b: 0.18431373, a: 1}
     graphBackgroundSprite: {fileID: 1273760789, guid: 6b6ac210592987545820ac0da277d73b, type: 3}
     graphBackgroundColor: {r: 1, g: 1, b: 1, a: 1}
     controlBackgroundSprite: {fileID: -1297866008, guid: 6b6ac210592987545820ac0da277d73b, type: 3}
     controlBackgroundColor: {r: 1, g: 1, b: 1, a: 1}
     infoBackgroundSprite: {fileID: 0}
     infoBackgroundColor: {r: 0.24705884, g: 0.15686275, b: 0.19215688, a: 1}
-    barSprite: {fileID: -1549155904, guid: 6b6ac210592987545820ac0da277d73b, type: 3}
+    barSprite: {fileID: 441698064, guid: 6b6ac210592987545820ac0da277d73b, type: 3}
     barColor: {r: 1, g: 1, b: 1, a: 1}
     saveIcon: {fileID: 0}
     addBarIcon: {fileID: 0}
     removeBarIcon: {fileID: 0}
     buttonBackground: {fileID: -1037232590, guid: 6b6ac210592987545820ac0da277d73b, type: 3}
-  - name: Cute
-    fontAsset: {fileID: 11400000, guid: dc75c1f090b54e4499e29431d8ada112, type: 2}
-    inputFieldColor: {r: 0.9215687, g: 0.83921576, b: 0.8196079, a: 1}
-    toolBackgroundColor: {r: 0.74509805, g: 0.2901961, b: 0.18431373, a: 1}
-    toolBackgroundImage: {fileID: 0}
-    graphBackgroundSprite: {fileID: 1273760789, guid: 6b6ac210592987545820ac0da277d73b, type: 3}
-    graphBackgroundColor: {r: 1, g: 1, b: 1, a: 1}
-    controlBackgroundSprite: {fileID: -1297866008, guid: 6b6ac210592987545820ac0da277d73b, type: 3}
-    controlBackgroundColor: {r: 1, g: 1, b: 1, a: 1}
-    infoBackgroundSprite: {fileID: 0}
-    infoBackgroundColor: {r: 0.24705884, g: 0.15686275, b: 0.19215688, a: 1}
-    barSprite: {fileID: -1549155904, guid: 6b6ac210592987545820ac0da277d73b, type: 3}
-    barColor: {r: 1, g: 1, b: 1, a: 1}
-    saveIcon: {fileID: 0}
-    addBarIcon: {fileID: 0}
-    removeBarIcon: {fileID: 0}
-    buttonBackground: {fileID: -1037232590, guid: 6b6ac210592987545820ac0da277d73b, type: 3}
+    buttonBackgroundColor: {r: 1, g: 1, b: 1, a: 1}

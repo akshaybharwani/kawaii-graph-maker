@@ -16,9 +16,13 @@ public class Theme
 {
     public string name;
     public TMP_FontAsset fontAsset;
+    [FormerlySerializedAs("inputFieldImage")] [Header("Input Field")]
+    public Sprite inputFieldSprite;
     public Color inputFieldColor;
-    public Color toolBackgroundColor;
+    public Color inputFieldTextColor;
+    [Header("Tool Background")]
     public Sprite toolBackgroundImage;
+    public Color toolBackgroundColor;
     [Header("Graph Background")]
     public Sprite graphBackgroundSprite;
     public Color graphBackgroundColor;
@@ -36,4 +40,5 @@ public class Theme
     public Sprite addBarIcon;
     public Sprite removeBarIcon;
     public Sprite buttonBackground;
+    public Color buttonBackgroundColor;
 }

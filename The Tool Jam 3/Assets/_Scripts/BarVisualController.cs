@@ -22,14 +22,8 @@ public class BarVisualController : MonoBehaviour
     {
         if (ThemeManager.Instance)
         {
-            if (ThemeManager.Instance.CurrentBarSprite)
-            {
-                barImage.sprite = ThemeManager.Instance.CurrentBarSprite;
-            }
-            else
-            {
-                barImage.color = ThemeManager.Instance.CurrentBarColor;
-            }
+            barImage.sprite = ThemeManager.Instance.CurrentBarSprite ? ThemeManager.Instance.CurrentBarSprite : null;
+            barImage.color = ThemeManager.Instance.CurrentBarColor;
         }
     }
 

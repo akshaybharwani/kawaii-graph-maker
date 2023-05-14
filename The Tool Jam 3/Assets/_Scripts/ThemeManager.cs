@@ -28,7 +28,11 @@ public class ThemeManager : MonoBehaviour
     public Color CurrentBarColor;
 
     [NonSerialized]
+    public Sprite CurrentInputFieldSprite;
+    [NonSerialized]
     public Color CurrentInputFieldColor;
+    [NonSerialized] 
+    public Color CurrentInputFieldTextColor;
     
     [Header("Theme stuff")]
     [SerializeField] 
@@ -62,6 +66,11 @@ public class ThemeManager : MonoBehaviour
     private Image addBarIcon;
     [SerializeField]
     private Image removeBarIcon;
+
+    [SerializeField] 
+    private Image xAxisLine;
+    [SerializeField]
+    private Image yAxisLine;
 
     private List<Image> themeButtonBackgroundImages = new();
     
@@ -100,16 +109,28 @@ public class ThemeManager : MonoBehaviour
         if (theme.addBarIcon) addBarIcon.sprite = theme.addBarIcon;
         if (theme.removeBarIcon) removeBarIcon.sprite = theme.removeBarIcon;
         var backgroundSprite = theme.buttonBackground ? theme.buttonBackground : null;
-        saveIcon.transform.parent.GetComponent<Image>().sprite = backgroundSprite;
+        var saveIconParentImage = saveIcon.transform.parent.GetComponent<Image>();
+        saveIconParentImage.sprite = backgroundSprite;
+        saveIconParentImage.color = theme.buttonBackgroundColor;
         foreach (var themeButtonBackgroundImage in themeButtonBackgroundImages)
         {
             themeButtonBackgroundImage.sprite = backgroundSprite;
+            themeButtonBackgroundImage.color = theme.buttonBackgroundColor;
         }
     }
 
     private void ChangeInputField(Theme theme)
     {
+        if (theme.inputFieldSprite)
+        {
+            CurrentInputFieldSprite = theme.inputFieldSprite;
+        }
+        else
+        {
+            CurrentInputFieldSprite = null;
+        }
         CurrentInputFieldColor = theme.inputFieldColor;
+        CurrentInputFieldTextColor = theme.inputFieldTextColor;
         var inputFields = FindObjectsOfType<NormalInputField>();
 
         foreach (var inputField in inputFields)
@@ -146,9 +167,9 @@ public class ThemeManager : MonoBehaviour
         else
         {
             toolBackground.sprite = null;
-            toolBackground.color = theme.toolBackgroundColor;
+            
         }
-
+        toolBackground.color = theme.toolBackgroundColor;
         if (theme.graphBackgroundSprite)
         {
             graphBackground.sprite = theme.graphBackgroundSprite;
@@ -156,9 +177,9 @@ public class ThemeManager : MonoBehaviour
         else
         {
             graphBackground.sprite = null;
-            graphBackground.color = theme.graphBackgroundColor;
+            
         }
-
+        graphBackground.color = theme.graphBackgroundColor;
         if (theme.controlBackgroundSprite)
         {
             controlBackground.sprite = theme.controlBackgroundSprite;
@@ -166,9 +187,9 @@ public class ThemeManager : MonoBehaviour
         else
         {
             controlBackground.sprite = null;
-            controlBackground.color = theme.controlBackgroundColor;
+            
         }
-
+        controlBackground.color = theme.controlBackgroundColor;
         if (theme.infoBackgroundSprite)
         {
             detailsPanelBackground.sprite = theme.infoBackgroundSprite;

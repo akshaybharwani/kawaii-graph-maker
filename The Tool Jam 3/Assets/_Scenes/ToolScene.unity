@@ -1336,6 +1336,9 @@ MonoBehaviour:
   themeData: {fileID: 11400000, guid: fb02960f50de8374289e421fcb5828a5, type: 2}
   themeParent: {fileID: 865305360}
   iconTextButton: {fileID: 4981423996123309510, guid: d1e71b443953338468ad6637709d24c2, type: 3}
+  toolBackground: {fileID: 1152300703}
+  graphBackground: {fileID: 307275074}
+  controlBackground: {fileID: 44260452}
 --- !u!114 &865305364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2778,7 +2781,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5054311112113053654, guid: 94624eaa507a08a4fb2951d9278efbfa, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 50
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5054311112113053654, guid: 94624eaa507a08a4fb2951d9278efbfa, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -3410,7 +3413,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5054311112113053654, guid: 94624eaa507a08a4fb2951d9278efbfa, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 50
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5054311112113053654, guid: 94624eaa507a08a4fb2951d9278efbfa, type: 3}
       propertyPath: m_AnchoredPosition.y

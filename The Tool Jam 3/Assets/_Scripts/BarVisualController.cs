@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -11,7 +12,25 @@ public class BarVisualController : MonoBehaviour
     [SerializeField] 
     private TextMeshProUGUI barName;
 
-    public TextMeshProUGUI BarName => barName;
+    private void Awake()
+    {
+        if (ThemeManager.Instance)
+        {
+            UpdateBarImage();
+        }
+    }
+
+    public void UpdateBarImage()
+    {
+        if (ThemeManager.Instance.CurrentBarSprite)
+        {
+            barImage.sprite = ThemeManager.Instance.CurrentBarSprite;
+        }
+        else
+        {
+            barImage.color = ThemeManager.Instance.CurrentBarColor;
+        }
+    }
 
     public void Setup()
     {

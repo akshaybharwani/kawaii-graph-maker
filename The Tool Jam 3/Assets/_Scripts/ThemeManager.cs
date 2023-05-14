@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -5,7 +6,7 @@ using UnityEngine.UI;
 public class ThemeManager : MonoBehaviour
 {
     public static ThemeManager Instance;
- 
+
     private void Awake()
     {
         if (Instance == null)
@@ -15,7 +16,16 @@ public class ThemeManager : MonoBehaviour
         CurrentFontAsset = themeData.themes[0].fontAsset;
     }
 
+    [NonSerialized]
     public TMP_FontAsset CurrentFontAsset;
+    
+    [NonSerialized]
+    public Sprite CurrentBarSprite;
+    [NonSerialized]
+    public Color CurrentBarColor;
+
+    [NonSerialized]
+    public Color CurrentInputFieldColor;
     
     [Header("Theme stuff")]
     [SerializeField] 
@@ -26,6 +36,16 @@ public class ThemeManager : MonoBehaviour
     
     [SerializeField] 
     private GameObject iconTextButton;
+
+    [Header("Theme objects")] 
+    [SerializeField]
+    private Image toolBackground;
+    
+    [SerializeField]
+    private Image graphBackground;
+    
+    [SerializeField]
+    private Image controlBackground;
 
     private void Start()
     {
@@ -46,6 +66,42 @@ public class ThemeManager : MonoBehaviour
     {
         var theme = themeData.themes[themeIndex];
         ChangeFont(theme);
+        ChangeBackgrounds(theme);
+        ChangeBar(theme);
+        ChangeInputField(theme);
+    }
+
+    private void ChangeInputField(Theme theme)
+    {
+        CurrentInputFieldColor = theme.inputFieldColor;
+        var inputFields = FindObjectsOfType<NormalInputField>();
+
+        foreach (var inputField in inputFields)
+        {
+            inputField.UpdateImage();
+        }
+    }
+
+    private void ChangeBar(Theme theme)
+    {
+        if (theme.barSprite)
+        {
+            CurrentBarSprite = theme.barSprite;
+        }
+        CurrentBarColor = theme.barColor;
+        var bars = FindObjectsOfType<BarVisualController>();
+
+        foreach (var bar in bars)
+        {
+            bar.UpdateBarImage();
+        }
+    }
+
+    private void ChangeBackgrounds(Theme theme)
+    {
+        toolBackground.color = theme.toolBackgroundColor;
+        graphBackground.sprite = theme.graphBackgroundSprite;
+        controlBackground.sprite = theme.controlBackgroundSprite;
     }
 
     private void ChangeFont(Theme theme)

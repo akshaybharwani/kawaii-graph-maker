@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
@@ -21,6 +22,9 @@ public class ToolManager : MonoBehaviour
 
     [SerializeField] 
     private RectTransform graphRectTransform;
+
+    [SerializeField] 
+    private GameObject controlsContainer;
 
     private int maxBarValue;
     public int MaxBarValue => maxBarValue;
@@ -120,7 +124,23 @@ public class ToolManager : MonoBehaviour
 
     public void TakeScreenshot()
     {
-        Utilities.Instance.TakeScreenshot(graphRectTransform);
+        StartCoroutine(WaitAndTakeScreenshot());
+    }
+
+    private IEnumerator WaitAndTakeScreenshot()
+    {
+        // Center the graph rect
+        var prevAnchoredPosition = graphRectTransform.anchoredPosition;
+        graphRectTransform.anchoredPosition = Vector2.zero;
+        controlsContainer.SetActive(false);
+        
+        yield return new WaitForEndOfFrame();
+
+        Utilities.Instance.TakeScreenshot();
+        
+        // Reset the position 
+        controlsContainer.SetActive(true);
+        graphRectTransform.anchoredPosition = prevAnchoredPosition;
     }
     
     public struct Bar

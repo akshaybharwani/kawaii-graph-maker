@@ -5,23 +5,15 @@ using TMPro;
 using UnityEngine;
 
 public class ToolManager : MonoBehaviour
-{
-    public static ToolManager Instance;
- 
-    private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-    }
-
+{ 
     // Input Fields
     [SerializeField] 
     private TMP_InputField maxValueInput;
 
+    [SerializeField] 
+    private RectTransform graphRectTransform;
+
     private int maxBarValue;
-    public int MaxBarValue => maxBarValue;
 
     private List<Bar> bars = new();
 
@@ -126,6 +118,9 @@ public class ToolManager : MonoBehaviour
 
     private IEnumerator WaitAndTakeScreenshot()
     {
+        // Center the graph rect
+        var prevAnchoredPosition = graphRectTransform.anchoredPosition;
+        graphRectTransform.anchoredPosition = Vector2.zero;
         foreach (var nonScreenshotCanvasGroup in nonScreenshotCanvasGroups)
         {
             nonScreenshotCanvasGroup.alpha = 0;
@@ -136,6 +131,7 @@ public class ToolManager : MonoBehaviour
         {
             nonScreenshotCanvasGroup.alpha = 1;
         }
+        graphRectTransform.anchoredPosition = prevAnchoredPosition;
     }
     
     public struct Bar

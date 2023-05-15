@@ -17,12 +17,12 @@ public class NormalInputField : MonoBehaviour
     {
         if (ThemeManager.Instance)
         {
-            var texts = GetComponentsInChildren<TextMeshProUGUI>();
+            var texts = GetComponentsInChildren<NormalText>();
             image.sprite = ThemeManager.Instance.CurrentInputFieldSprite ? ThemeManager.Instance.CurrentInputFieldSprite : ThemeManager.Instance.NormalBackgroundSprite;
             image.color = ThemeManager.Instance.CurrentInputFieldColor;
             foreach (var text in texts)
             {
-                text.color = ThemeManager.Instance.CurrentInputFieldTextColor;
+                text.GetComponent<TextMeshProUGUI>().color = ThemeManager.Instance.CurrentInputFieldTextColor;
             }
         }
     }

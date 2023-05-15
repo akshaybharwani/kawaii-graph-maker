@@ -19,6 +19,7 @@ public class ThemeManager : MonoBehaviour
         CurrentBarColor = themeData.themes[0].barColor;
         CurrentBarInfoColor = themeData.themes[0].barInfoInputColor;
         CurrentInputFieldColor = themeData.themes[0].inputFieldColor;
+        CurrentInputFieldTextColor = themeData.themes[0].inputFieldTextColor;
     }
 
     [NonSerialized]
@@ -50,6 +51,10 @@ public class ThemeManager : MonoBehaviour
     
     [SerializeField] 
     private GameObject iconTextButton;
+
+    [SerializeField] 
+    private Sprite normalBackgroundSprite;
+    public Sprite NormalBackgroundSprite => normalBackgroundSprite;
 
     [Header("Theme objects")] 
     [SerializeField]
@@ -143,14 +148,7 @@ public class ThemeManager : MonoBehaviour
 
     private void ChangeInputField(Theme theme)
     {
-        if (theme.inputFieldSprite)
-        {
-            CurrentInputFieldSprite = theme.inputFieldSprite;
-        }
-        else
-        {
-            CurrentInputFieldSprite = null;
-        }
+        CurrentInputFieldSprite = theme.inputFieldSprite ? theme.inputFieldSprite : null;
         CurrentInputFieldColor = theme.inputFieldColor;
         CurrentInputFieldTextColor = theme.inputFieldTextColor;
         var inputFields = FindObjectsOfType<NormalInputField>();

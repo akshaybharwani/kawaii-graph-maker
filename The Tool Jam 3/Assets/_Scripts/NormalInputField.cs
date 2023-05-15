@@ -18,14 +18,7 @@ public class NormalInputField : MonoBehaviour
         if (ThemeManager.Instance)
         {
             var texts = GetComponentsInChildren<TextMeshProUGUI>();
-            if (ThemeManager.Instance.CurrentInputFieldSprite)
-            {
-                image.sprite = ThemeManager.Instance.CurrentInputFieldSprite;
-            }
-            else
-            {
-                image.sprite = null;
-            }
+            image.sprite = ThemeManager.Instance.CurrentInputFieldSprite ? ThemeManager.Instance.CurrentInputFieldSprite : ThemeManager.Instance.NormalBackgroundSprite;
             image.color = ThemeManager.Instance.CurrentInputFieldColor;
             foreach (var text in texts)
             {

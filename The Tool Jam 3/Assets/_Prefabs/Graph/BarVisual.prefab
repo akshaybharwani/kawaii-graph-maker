@@ -172,7 +172,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 957724785825425079, guid: 4c90270bcf0c30b4a9ca994635f7ccc3, type: 3}
       propertyPath: m_enableWordWrapping
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 957724785825425079, guid: 4c90270bcf0c30b4a9ca994635f7ccc3, type: 3}
       propertyPath: m_HorizontalAlignment

@@ -1569,6 +1569,7 @@ MonoBehaviour:
   themeData: {fileID: 11400000, guid: fb02960f50de8374289e421fcb5828a5, type: 2}
   themeParent: {fileID: 865305360}
   iconTextButton: {fileID: 4981423996123309510, guid: d1e71b443953338468ad6637709d24c2, type: 3}
+  normalBackgroundSprite: {fileID: 21300000, guid: a670c848e69dfbb44a02350937921a0b, type: 3}
   toolBackground: {fileID: 1152300703}
   graphBackground: {fileID: 307275074}
   controlBackground: {fileID: 44260452}

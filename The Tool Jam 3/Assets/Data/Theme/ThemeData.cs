@@ -2,8 +2,6 @@ using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
-using UnityEngine.UI;
 
 [CreateAssetMenu(fileName = "ThemeData", menuName = "ScriptableObjects/ThemeData", order = 1)]
 public class ThemeData : ScriptableObject

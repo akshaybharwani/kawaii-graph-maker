@@ -20,11 +20,9 @@ public class BarVisualController : MonoBehaviour
 
     public void UpdateBarImage()
     {
-        if (ThemeManager.Instance)
-        {
-            barImage.sprite = ThemeManager.Instance.CurrentBarSprite ? ThemeManager.Instance.CurrentBarSprite : null;
-            barImage.color = ThemeManager.Instance.CurrentBarColor;
-        }
+        if (!ThemeManager.Instance) return;
+        barImage.sprite = ThemeManager.Instance.CurrentBarSprite ? ThemeManager.Instance.CurrentBarSprite : ThemeManager.Instance.NormalBackgroundSprite;
+        barImage.color = ThemeManager.Instance.CurrentBarColor;
     }
 
     public void Setup()

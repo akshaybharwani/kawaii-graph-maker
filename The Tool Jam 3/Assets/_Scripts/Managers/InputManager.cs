@@ -44,8 +44,12 @@ public class InputManager : MonoBehaviour
             var selectable = EventSystem.current.currentSelectedGameObject.GetComponent<Selectable>().FindSelectableOnLeft();
             if (selectable != null)
             {
-                selectable.Select();
-                return;
+                var barInfo = selectable.GetComponentInParent<BarInfoInputController>();
+                if (barInfo == null)
+                {
+                    selectable.Select();
+                    return;
+                }
             }
             selectable = EventSystem.current.currentSelectedGameObject.GetComponent<Selectable>().FindSelectableOnUp();
             if (selectable != null)

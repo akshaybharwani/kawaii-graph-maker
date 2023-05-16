@@ -2527,7 +2527,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2531324519899882505, guid: 1a7ab1699f52e634e9a3b4e3e096e60d, type: 3}
       propertyPath: m_text
-      value: 'Y Axis:'
+      value: 'Y Axis Name:'
       objectReference: {fileID: 0}
     - target: {fileID: 2531324519899882505, guid: 1a7ab1699f52e634e9a3b4e3e096e60d, type: 3}
       propertyPath: m_sharedMaterial
@@ -2544,6 +2544,10 @@ PrefabInstance:
     - target: {fileID: 4427592615927088523, guid: 1a7ab1699f52e634e9a3b4e3e096e60d, type: 3}
       propertyPath: m_Name
       value: YAxisInputField
+      objectReference: {fileID: 0}
+    - target: {fileID: 5225854813261661818, guid: 1a7ab1699f52e634e9a3b4e3e096e60d, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5914859925010421764, guid: 1a7ab1699f52e634e9a3b4e3e096e60d, type: 3}
       propertyPath: m_Name
@@ -2679,7 +2683,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 957724785825425079, guid: 4c90270bcf0c30b4a9ca994635f7ccc3, type: 3}
       propertyPath: m_text
-      value: 'Y Axis
+      value: 'Y Axis Name
 
 '
       objectReference: {fileID: 0}
@@ -2946,7 +2950,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2531324519899882505, guid: 1a7ab1699f52e634e9a3b4e3e096e60d, type: 3}
       propertyPath: m_text
-      value: 'X Axis:'
+      value: 'X Axis Nane:'
       objectReference: {fileID: 0}
     - target: {fileID: 2531324519899882505, guid: 1a7ab1699f52e634e9a3b4e3e096e60d, type: 3}
       propertyPath: m_sharedMaterial
@@ -2963,6 +2967,10 @@ PrefabInstance:
     - target: {fileID: 4427592615927088523, guid: 1a7ab1699f52e634e9a3b4e3e096e60d, type: 3}
       propertyPath: m_Name
       value: XAxisInputField
+      objectReference: {fileID: 0}
+    - target: {fileID: 5225854813261661818, guid: 1a7ab1699f52e634e9a3b4e3e096e60d, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5914859925010421764, guid: 1a7ab1699f52e634e9a3b4e3e096e60d, type: 3}
       propertyPath: m_Name
@@ -3138,6 +3146,18 @@ PrefabInstance:
       value: Bars
       objectReference: {fileID: 0}
     - target: {fileID: 6224405422612867441, guid: 94624eaa507a08a4fb2951d9278efbfa, type: 3}
+      propertyPath: m_fontSize
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6224405422612867441, guid: 94624eaa507a08a4fb2951d9278efbfa, type: 3}
+      propertyPath: m_fontStyle
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 6224405422612867441, guid: 94624eaa507a08a4fb2951d9278efbfa, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6224405422612867441, guid: 94624eaa507a08a4fb2951d9278efbfa, type: 3}
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3275,6 +3295,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NameInputField
       objectReference: {fileID: 0}
+    - target: {fileID: 5225854813261661818, guid: 1a7ab1699f52e634e9a3b4e3e096e60d, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5914859925010421764, guid: 1a7ab1699f52e634e9a3b4e3e096e60d, type: 3}
       propertyPath: m_Name
       value: NameInputPanel
@@ -3343,7 +3367,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 957724785825425079, guid: 4c90270bcf0c30b4a9ca994635f7ccc3, type: 3}
       propertyPath: m_text
-      value: 'X Axis
+      value: 'X Axis Name
 
 '
       objectReference: {fileID: 0}
@@ -3575,6 +3599,10 @@ PrefabInstance:
     - target: {fileID: 4427592615927088523, guid: 1a7ab1699f52e634e9a3b4e3e096e60d, type: 3}
       propertyPath: m_Name
       value: MaxValueInputField
+      objectReference: {fileID: 0}
+    - target: {fileID: 5225854813261661818, guid: 1a7ab1699f52e634e9a3b4e3e096e60d, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5914859925010421764, guid: 1a7ab1699f52e634e9a3b4e3e096e60d, type: 3}
       propertyPath: m_Name
